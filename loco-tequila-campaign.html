@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loco Tequila x Whisky Advocate | Digital Campaign</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1c1c1c;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        /* Header Styling */
+        header {
+            background: linear-gradient(180deg, #0f0f0f 0%, #1f1f1f 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(198, 165, 89, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(198, 165, 89, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            height: 110px;
+        }
+        
+        .logo-wrapper img {
+            height: 110px;
+            width: auto;
+            filter: brightness(1.1) contrast(1.1);
+        }
+        
+        .divider-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(180deg, transparent, #c6a559, transparent);
+            opacity: 0.6;
+        }
+        
+        .campaign-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #c6a559;
+            margin-bottom: 12px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .tagline {
+            color: #e8e8e8;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 2.5px;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+        
+        /* Investment Banner */
+        .investment-banner {
+            background: linear-gradient(90deg, #c6a559 0%, #e8d4a3 50%, #c6a559 100%);
+            background-size: 200% 100%;
+            animation: shimmer 4s ease-in-out infinite;
+            color: #0f0f0f;
+            padding: 35px;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .investment-item {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        
+        .investment-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        
+        .investment-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin: 80px 40px;
+        }
+        
+        .stat-card {
+            background: #ffffff;
+            padding: 45px 20px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        
+        .stat-card:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 30%;
+            height: 40%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, #e0e0e0, transparent);
+        }
+        
+        .stat-card:hover {
+            background: linear-gradient(180deg, #ffffff, #fafafa);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .stat-card:hover .stat-number {
+            color: #9b8043;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: #c6a559;
+            font-weight: 400;
+            margin-bottom: 12px;
+            transition: color 0.4s ease;
+        }
+        
+        .stat-label {
+            color: #6a6a6a;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+        
+        /* Section Styling */
+        .content-wrapper {
+            padding: 0 40px 40px;
+        }
+        
+        .section {
+            background: #ffffff;
+            padding: 70px;
+            margin-bottom: 50px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #0f0f0f;
+            font-size: 36px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 45px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 25px;
+        }
+        
+        .section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 1px;
+            background: #c6a559;
+        }
+        
+        .section h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1c1c1c;
+            font-size: 24px;
+            font-weight: 400;
+            margin: 45px 0 30px;
+            letter-spacing: 0.5px;
+        }
+        
+        .intro-text {
+            font-size: 15px;
+            line-height: 1.9;
+            color: #4a4a4a;
+            text-align: center;
+            max-width: 920px;
+            margin: 0 auto 55px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Tactic Cards */
+        .tactic-card {
+            background: linear-gradient(180deg, #fcfcfc, #f8f8f8);
+            border: 1px solid #e8e8e8;
+            padding: 45px;
+            margin: 35px 0;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        
+        .tactic-card:hover {
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+            transform: translateX(8px);
+            background: #ffffff;
+        }
+        
+        .tactic-number {
+            position: absolute;
+            left: -25px;
+            top: 40px;
+            width: 50px;
+            height: 50px;
+            background: #c6a559;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: 22px;
+        }
+        
+        .tactic-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: #0f0f0f;
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 18px;
+            padding-left: 35px;
+            letter-spacing: 0.3px;
+        }
+        
+        .tactic-card > p {
+            color: #5a5a5a;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            padding-left: 35px;
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+        }
+        
+        .tactic-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+            padding-left: 35px;
+        }
+        
+        .detail-item {
+            padding: 25px;
+            background: white;
+            border: 1px solid #efefef;
+            transition: all 0.3s ease;
+        }
+        
+        .detail-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+        
+        .detail-item strong {
+            color: #c6a559;
+            display: block;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        
+        .detail-item p {
+            color: #4a4a4a;
+            line-height: 1.7;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 70px;
+            margin: 55px 0;
+        }
+        
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #c6a559;
+            opacity: 0.4;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 45px;
+        }
+        
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -45px;
+            top: 6px;
+            width: 11px;
+            height: 11px;
+            background: white;
+            border: 2px solid #c6a559;
+            border-radius: 50%;
+        }
+        
+        .timeline-item h5 {
+            font-family: 'Playfair Display', serif;
+            color: #0f0f0f;
+            font-size: 17px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+        
+        .timeline-item p {
+            color: #5a5a5a;
+            line-height: 1.7;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+        
+        /* Performance Grid */
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin: 45px 0;
+        }
+        
+        .kpi-item {
+            background: linear-gradient(180deg, #fcfcfc, #f8f8f8);
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            transition: all 0.4s ease;
+        }
+        
+        .kpi-item:hover {
+            background: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+        }
+        
+        .kpi-item strong {
+            display: block;
+            color: #c6a559;
+            margin-bottom: 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+        
+        .kpi-item span {
+            color: #5a5a5a;
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Lists */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            padding: 18px 0 18px 45px;
+            position: relative;
+            color: #4a4a4a;
+            line-height: 1.8;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+        
+        ul li:before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 26px;
+            width: 5px;
+            height: 5px;
+            background: #c6a559;
+            transform: rotate(45deg);
+        }
+        
+        ul li strong {
+            color: #0f0f0f;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 40px;
+            background: #ffffff;
+            border-top: 1px solid #e8e8e8;
+            margin: 60px 40px 40px;
+        }
+        
+        .footer-thank-you {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #1c1c1c;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-name {
+            font-weight: 500;
+            color: #2a2a2a;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .footer-title {
+            font-size: 13px;
+            color: #6a6a6a;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-company {
+            font-size: 12px;
+            color: #8a8a8a;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact {
+            font-size: 12px;
+            color: #8a8a8a;
+            line-height: 1.6;
+        }
+        
+        .footer-contact a {
+            color: #c6a559;
+            text-decoration: none;
+        }
+        
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-copyright {
+            margin-top: 30px;
+            font-size: 11px;
+            color: #aaa;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .performance-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stat-card:nth-child(2)::after {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 35px;
+            }
+            
+            .divider-line {
+                width: 60px;
+                height: 1px;
+            }
+            
+            .investment-banner {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stat-card::after {
+                display: none;
+            }
+            
+            .section {
+                padding: 45px 30px;
+            }
+            
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-wrapper">
+                    <img src="https://i.ibb.co/ycGNCSQ5/Loco-Tequila-Logo-removebg-preview.png" alt="Loco Tequila" />
+                </div>
+                <div class="divider-line"></div>
+                <div class="logo-wrapper">
+                    <img src="https://i.ibb.co/rhBCZz4/whisky-advocate-41-1-2-2-removebg-preview.png" alt="Whisky Advocate" />
+                </div>
+            </div>
+            <div class="campaign-title">Premium Digital Campaign Partnership</div>
+            <div class="tagline">Elevating Tequila Through Premium Spirits Authority</div>
+        </header>
+        
+        <div class="investment-banner">
+            <div class="investment-item">
+                <span class="investment-label">Investment</span>
+                <span class="investment-value">$50,000</span>
+            </div>
+            <div class="investment-item">
+                <span class="investment-label">Total Impressions</span>
+                <span class="investment-value">1,170,000+</span>
+            </div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">60</div>
+                <div class="stat-label">Day Campaign</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Marketing Channels</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">250K</div>
+                <div class="stat-label">Email Subscribers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Premium Placement</div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h2>Campaign Strategy & Execution</h2>
+                
+                <p class="intro-text">
+                    This integrated campaign creates multiple touchpoints across Whisky Advocate's premium digital ecosystem. 
+                    We'll build a custom Loco Tequila experience that lives on WhiskyAdvocate.com, then drive qualified traffic 
+                    through seven synchronized marketing channels. Each element is designed to work together, creating a 
+                    surround-sound effect that builds brand awareness, educates consumers, and drives purchase consideration.
+                </p>
+                
+                <div class="tactic-card">
+                    <div class="tactic-number">1</div>
+                    <h4>Custom Landing Page Hub - The Campaign Centerpiece</h4>
+                    <p>A fully branded, immersive digital experience that serves as the destination for all campaign traffic. This isn't just a landing page—it's a premium brand showcase designed to convert interest into action.</p>
+                    <div class="tactic-details">
+                        <div class="detail-item">
+                            <strong>Content Strategy</strong>
+                            <p>Interactive brand story with video integration, product portfolio with 360° bottle views, cocktail recipe generator, and tequila education modules</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>User Experience</strong>
+                            <p>Mobile-first responsive design, average session time target of 3+ minutes, integrated e-commerce locator, social sharing functionality</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Engagement Tools</strong>
+                            <p>Email capture with incentive offer, downloadable cocktail guide, virtual tasting booking system, retailer lookup by ZIP code</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tactic-card">
+                    <div class="tactic-number">2</div>
+                    <h4>Homepage Takeover - Maximum Visibility</h4>
+                    <p>Prime real estate on WhiskyAdvocate.com's homepage ensures Loco Tequila captures attention from day one.</p>
+                    <div class="tactic-details">
+                        <div class="detail-item">
+                            <strong>Placement Details</strong>
+                            <p>Above-the-fold positioning, 25% share of voice rotation, estimated 500K+ homepage views during campaign</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Creative Rotation</strong>
+                            <p>3 creative variants for A/B testing, seasonal messaging updates, dynamic content based on user behavior</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tactic-card">
+                    <div class="tactic-number">3</div>
+                    <h4>Native Content Extension - 350,000 Impressions</h4>
+                    <p>Seamlessly integrated sponsored content that maintains editorial integrity while promoting Loco Tequila.</p>
+                    <div class="tactic-details">
+                        <div class="detail-item">
+                            <strong>Content Types</strong>
+                            <p>"The Rise of Premium Tequila" editorial feature, "Master Distiller Profile" interview series, "Cocktail of the Month" showcase</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Distribution</strong>
+                            <p>Homepage content stream, article page recommendations, category page integrations, mobile app placements</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tactic-card">
+                    <div class="tactic-number">4</div>
+                    <h4>Paid Social Campaign - 400,000 Impressions</h4>
+                    <p>Targeted social media advertising leveraging Whisky Advocate's engaged following and lookalike audiences.</p>
+                    <div class="tactic-details">
+                        <div class="detail-item">
+                            <strong>Platform Strategy</strong>
+                            <p>Facebook: 40% budget - carousel ads, video content<br>
+                            Instagram: 40% budget - stories, reels, feed posts<br>
+                            Twitter: 20% budget - promoted tweets, trending topics</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Audience Targeting</strong>
+                            <p>Premium spirits enthusiasts, Whisky Advocate followers, competitor brand affinity, lifestyle and interest targeting</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Content Calendar</strong>
+                            <p>Week 1-2: Brand awareness push<br>
+                            Week 3-4: Product education<br>
+                            Week 5-6: Cocktail recipes<br>
+                            Week 7-8: Purchase drivers</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tactic-card">
+                    <div class="tactic-number">5</div>
+                    <h4>Newsletter Integration - 150,000 Subscribers</h4>
+                    <p>Premium placement within Whisky Advocate's highly engaged newsletter audience.</p>
+                    <div class="tactic-details">
+                        <div class="detail-item">
+                            <strong>Newsletter #1 (Week 2)</strong>
+                            <p>Top banner placement, 300x250 native ad unit, editorial mention in "What We're Drinking", 75,000 subscribers</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Newsletter #2 (Week 6)</strong>
+                            <p>Featured brand spotlight, recipe integration, exclusive reader offer, 75,000 subscribers</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tactic-card">
+                    <div class="tactic-number">6</div>
+                    <h4>Dedicated Email Blasts - 100,000 Direct Sends</h4>
+                    <p>Standalone Loco Tequila emails with 100% share of voice to drive maximum engagement.</p>
+                    <div class="tactic-details">
+                        <div class="detail-item">
+                            <strong>Email #1 (Week 3)</strong>
+                            <p>Subject: "Discover the Spirit of Mexico"<br>
+                            Hero product focus, brand story emphasis, 50,000 targeted sends</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Email #2 (Week 7)</strong>
+                            <p>Subject: "Your Weekend Cocktail Awaits"<br>
+                            Recipe-driven content, limited-time offer, 50,000 targeted sends</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tactic-card">
+                    <div class="tactic-number">7</div>
+                    <h4>Display Advertising - 170,000 Impressions</h4>
+                    <p>Strategic banner placements across WhiskyAdvocate.com to maintain constant brand presence.</p>
+                    <div class="tactic-details">
+                        <div class="detail-item">
+                            <strong>Ad Specifications</strong>
+                            <p>728x90 Leaderboard, 300x250 Medium Rectangle, 320x50 Mobile Banner, 160x600 Skyscraper</p>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Placement Strategy</strong>
+                            <p>Article pages (40%), Homepage (30%), Category pages (20%), Mobile app (10%)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Campaign Timeline & Milestones</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h5>Week 1-2: Pre-Launch Phase</h5>
+                        <p>Landing page development, creative asset production, audience segmentation, tracking implementation</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 3: Campaign Launch</h5>
+                        <p>Landing page goes live, homepage placement begins, first dedicated email blast, social campaign activation</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 4-5: Momentum Building</h5>
+                        <p>First newsletter inclusion, native content publication, display advertising ramp-up, initial optimization based on data</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 6-7: Peak Engagement</h5>
+                        <p>Second newsletter feature, second dedicated email, social campaign peak spend, A/B testing implementation</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 8: Campaign Crescendo</h5>
+                        <p>Final push across all channels, retargeting campaign activation, exclusive offers to drive action</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>Week 9: Analysis & Optimization</h5>
+                        <p>Campaign wind-down, data analysis, performance reporting, recommendations for future campaigns</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Performance Measurement & KPIs</h2>
+                <p class="intro-text">Real-time dashboard access with comprehensive tracking across all campaign elements.</p>
+                
+                <div class="performance-grid">
+                    <div class="kpi-item">
+                        <strong>Impressions</strong>
+                        <span>Total delivered vs. goal</span>
+                    </div>
+                    <div class="kpi-item">
+                        <strong>Click-Through Rate</strong>
+                        <span>By channel and creative</span>
+                    </div>
+                    <div class="kpi-item">
+                        <strong>Engagement Rate</strong>
+                        <span>Time on site, pages viewed</span>
+                    </div>
+                    <div class="kpi-item">
+                        <strong>Social Metrics</strong>
+                        <span>Likes, shares, comments</span>
+                    </div>
+                    <div class="kpi-item">
+                        <strong>Email Performance</strong>
+                        <span>Open rate, click rate</span>
+                    </div>
+                    <div class="kpi-item">
+                        <strong>Device Analytics</strong>
+                        <span>Mobile vs. desktop</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Why This Campaign Will Succeed</h2>
+                <ul>
+                    <li><strong>Premium Environment:</strong> Whisky Advocate's authority in spirits provides unmatched credibility for Loco Tequila's premium positioning</li>
+                    <li><strong>Qualified Audience:</strong> Our readers are affluent spirits enthusiasts actively seeking their next premium purchase</li>
+                    <li><strong>Multi-Touch Strategy:</strong> Seven coordinated touchpoints ensure message retention and action</li>
+                    <li><strong>Data-Driven Optimization:</strong> Real-time performance data allows for continuous improvement throughout the campaign</li>
+                    <li><strong>Cross-Category Appeal:</strong> Whisky drinkers are increasingly exploring premium tequila, making this the perfect audience for conversion</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-thank-you">Thank You</div>
+            <div class="footer-name">Stephen Senatore</div>
+            <div class="footer-title">
+                Senior Vice President, Spirits<br>
+                Wine Spectator, Whisky Advocate, Cigar Aficionado<br>
+                Market Watch, Impact, Shanken News Daily
+            </div>
+            <div class="footer-company">
+                M. Shanken Communications, Inc.<br>
+                825 Eighth Avenue, 33rd Floor<br>
+                New York, NY 10019
+            </div>
+            <div class="footer-contact">
+                (212) 684-4847 - O | (908) 313-2291 - C<br>
+                <a href="mailto:ssenatore@mshanken.com">ssenatore@mshanken.com</a>
+            </div>
+            <div class="footer-copyright">© 2025 WHISKY ADVOCATE</div>
+        </div>
+    </div>
+</body>
+</html>
