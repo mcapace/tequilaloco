@@ -26,10 +26,10 @@
             padding: 0;
         }
         
-        /* Header Styling */
+        /* Header Styling - LIGHTER BACKGROUND FOR LOGO VISIBILITY */
         header {
-            background: linear-gradient(180deg, #0f0f0f 0%, #1f1f1f 100%);
-            color: white;
+            background: linear-gradient(180deg, #d5d5d5 0%, #e0e0e0 100%);
+            color: #2a2a2a;
             padding: 80px 40px;
             text-align: center;
             position: relative;
@@ -44,8 +44,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(198, 165, 89, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(198, 165, 89, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(198, 165, 89, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(198, 165, 89, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
         
@@ -68,14 +68,14 @@
         .logo-wrapper img {
             height: 110px;
             width: auto;
-            filter: brightness(1.1) contrast(1.1);
+            filter: none;
         }
         
         .divider-line {
             width: 1px;
             height: 60px;
             background: linear-gradient(180deg, transparent, #c6a559, transparent);
-            opacity: 0.6;
+            opacity: 0.8;
         }
         
         .campaign-title {
@@ -86,15 +86,13 @@
             color: #c6a559;
             margin-bottom: 12px;
             font-weight: 400;
-            opacity: 0.9;
         }
         
         .tagline {
-            color: #e8e8e8;
+            color: #4a4a4a;
             font-size: 15px;
             font-weight: 300;
             letter-spacing: 2.5px;
-            opacity: 0.8;
             text-transform: uppercase;
         }
         
